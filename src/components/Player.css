@@ -1,0 +1,106 @@
+/* Player.css */
+
+/* Add some basic styling */
+.player-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio for responsive sizing */
+  overflow: hidden;
+  margin-top: 55px;
+}
+
+.react-player {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Responsive styles using media queries */
+@media screen and (max-width: 767px) {
+  .player-container {
+      padding-bottom: 75%;
+      /* Adjust as needed for smaller screens */
+  }
+}
+
+/* Add some attractive styles (customize as per your design) */
+.react-player {
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+/* Hover effect for a more interactive experience */
+.react-player:hover {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Add a play button icon */
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Customize the progress bar */
+.progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background-color: #ccc;
+}
+
+/* Style the progress indicator */
+.progress-indicator {
+  height: 100%;
+  background-color: #3498db;
+}
+
+/* Style the volume control */
+.volume-control {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+/* Customize the playback controls */
+.playback-controls {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+
+.playback-controls button {
+  background-color: #3498db;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  margin-right: 5px;
+  padding: 8px;
+}
+
+/* Style the fullscreen button */
+.fullscreen-button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 18px;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Add a transition effect for a smoother appearance */
+.transition {
+  transition: all 0.3s ease-in-out;
+}

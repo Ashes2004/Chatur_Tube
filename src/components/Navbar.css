@@ -1,0 +1,63 @@
+/* Your existing styles for .das */
+.das {
+  background: linear-gradient(to right, #8151d5, #47a3bc, #c74c66);
+  background-size: 200% 100%;
+  animation: gradientAnimation 5s ease infinite;
+}
+
+/* Additional styles for .logo */
+.logo {
+  text-decoration: none;
+  /* Add animation properties for .logo */
+  animation: logoAnimation 3s ease infinite;
+}
+
+/* Your media query for larger screens */
+@media (min-width: 768px) {
+  /* Adjust the width of the search input for larger screens */
+  .search-input {
+      width: 300px; /* Adjust the width as needed */
+  }
+}
+
+/* Keyframes for the animations */
+@keyframes gradientAnimation {
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+  }
+}
+.logoName {
+  /* Use background instead of color for a gradient text */
+  background: linear-gradient(to right, #ffffff, hsl(126, 76%, 52%), #d5aaa2);
+  -webkit-background-clip: text; /* Apply gradient to text - for WebKit browsers */
+  color: transparent; /* Make the text transparent */
+margin-top: 4px;
+  /* For non-WebKit browsers, use the following property */
+  background-clip: text;
+  font-weight: 700;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@keyframes logoAnimation {
+  0% {
+      transform: scale(1);
+  }
+  30% {
+      transform: scale(1.2);
+  }
+  60% {
+      transform: rotate(180deg);
+  }
+  80% {
+      transform: rotate(360deg);
+  }
+  100% {
+    transform: scale(1);
+}
+}
