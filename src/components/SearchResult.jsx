@@ -14,13 +14,10 @@ const SearchResult = ({ searchInput }) => {
       }
 console.log('result here: ',searchInput);
 const API_LIST = [
-  'AIzaSyAM9R1vr9t6GSrazqGtw5t8RBKmz2Q17dk',
-  'AIzaSyCvaktMcshCgWbahXn7JuJcmhUlSR5ZxAA',
-  'AIzaSyBboFo9umdEW03mwz8IdLsRVWXEeAyokdw',
-  'AIzaSyAmw-1dYBqj1MIqccmtfeLWfgzYqROkylY',
   'AIzaSyBXaSHnkg1JHTCn8um-q4AfwlyDrC0g5ng',
   'AIzaSyA-xoSvUcnAYUK2v6sTeJtQT4NG9JxWrQg',
-  'AIzaSyDwCaQVTwJsau514qhaWTMBlZ80iQgKLtM'
+  'AIzaSyDwCaQVTwJsau514qhaWTMBlZ80iQgKLtM',
+  'AIzaSyBL-y6KSyd1roD9rAY6tzRuJpiSRBVxww8',
 ];
 
 

@@ -34,6 +34,7 @@
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease-in-out;
+    overflow-x: auto;
 
 }
 
@@ -74,6 +75,7 @@
     margin: 10px 0;
     font-size: 14px;
     color: #555;
+    overflow-x: auto;
 }
 
 .comment-footer {

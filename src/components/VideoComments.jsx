@@ -16,7 +16,10 @@ const VideoComments = ({ videoId }) => {
           'AIzaSyAmw-1dYBqj1MIqccmtfeLWfgzYqROkylY',
           'AIzaSyBXaSHnkg1JHTCn8um-q4AfwlyDrC0g5ng',
           'AIzaSyA-xoSvUcnAYUK2v6sTeJtQT4NG9JxWrQg',
-          'AIzaSyDwCaQVTwJsau514qhaWTMBlZ80iQgKLtM'
+          'AIzaSyDwCaQVTwJsau514qhaWTMBlZ80iQgKLtM',
+          'AIzaSyB-9_ZEDWXvVl5_Mc9PQ3FTUxgHMA5qCs4',
+          'AIzaSyBL-y6KSyd1roD9rAY6tzRuJpiSRBVxww8',
+          'AIzaSyCfscBsyvhAIjMzb8JSr95Ub2bgNvnYwZc',
         ];
         
        
