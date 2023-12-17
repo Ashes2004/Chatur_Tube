@@ -12,7 +12,7 @@ const randomIndex = Math.floor(Math.random() * API_LIST.length);
 
 const API_KEY = API_LIST[randomIndex];
 console.log('key:',API_KEY);
-let Array = ['govt exam','coding','ai teachnology','space technology']
+let Array = ['govt exam','coding','programming','software developer','quick support','vivekananda quoetes','buddhism']
 const randomTopic = Math.floor(Math.random() * Array.length);
 let searchQuery = Array[randomTopic];
 
