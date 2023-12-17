@@ -1,16 +1,26 @@
-// Navbar.jsx
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+
+import 'react-toastify/dist/ReactToastify.css';
 import './Navbar.css';
 
-const Navbar = ({ searchvalue }) => {
+const Navbar = ({ searchvalue ,showToast}) => {
   const [searchInput, setSearchInput] = useState('');
-
+  
   const handleSearch = (e) => {
     e.preventDefault();
     console.log('searchinput', searchInput);
     searchvalue(searchInput);
   };
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      showToast();
+    }
+  };
+
+ 
 
   return (
     <div>
@@ -22,9 +32,7 @@ const Navbar = ({ searchvalue }) => {
               alt="Logo"
               height={40}
               width={40}
-            // Set a maximum width for the image
             />
-            
           </Link>
           
           <div className="d-flex float-right">
@@ -35,15 +43,17 @@ const Navbar = ({ searchvalue }) => {
               aria-label="Search"
               value={searchInput}
               onChange={(e) => setSearchInput(e.target.value)}
+              onKeyDown={handleKeyPress}
             />
             <button className="btn btn-light btn-outline-success" onClick={handleSearch}>
               <Link to={`/SearchResult/${searchInput}`}>
-              <i class="fa-solid fa-magnifying-glass text-black"></i>
+                <i className="fa-solid fa-magnifying-glass text-black"></i>
               </Link>
             </button>
           </div>
         </div>
       </nav>
+      
     </div>
   );
 };

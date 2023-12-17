@@ -1,6 +1,22 @@
-const API_KEY = 'AIzaSyDwCaQVTwJsau514qhaWTMBlZ80iQgKLtM';
-const url = 'https://www.googleapis.com/youtube/v3/search';
-let searchQuery = 'coding';
+const API_LIST = [
+  'AIzaSyAM9R1vr9t6GSrazqGtw5t8RBKmz2Q17dk',
+  'AIzaSyCvaktMcshCgWbahXn7JuJcmhUlSR5ZxAA',
+  'AIzaSyBboFo9umdEW03mwz8IdLsRVWXEeAyokdw',
+  'AIzaSyAmw-1dYBqj1MIqccmtfeLWfgzYqROkylY',
+  'AIzaSyBXaSHnkg1JHTCn8um-q4AfwlyDrC0g5ng',
+  'AIzaSyA-xoSvUcnAYUK2v6sTeJtQT4NG9JxWrQg',
+  'AIzaSyDwCaQVTwJsau514qhaWTMBlZ80iQgKLtM'
+];
+
+
+const randomIndex = Math.floor(Math.random() * API_LIST.length);
+
+
+const API_KEY = API_LIST[randomIndex];
+console.log('key:',API_KEY);
+let Array = ['govt exam','coding','ai teachnology','space technology']
+const randomTopic = Math.floor(Math.random() * Array.length);
+let searchQuery = Array[randomTopic];
 
 export const fetchData = async () => {
     const apiUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=18&q=${searchQuery}&videoDuration=long&regionCode=IN&order=viewCount&key=${API_KEY}`;

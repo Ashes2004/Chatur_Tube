@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import './Playlist.css';
+
 import './SearchResult.css';
+import { Link } from 'react-router-dom';
 
-
-
-const SearchResult = ({ searchInput }) => {
+const Playlist = ({ searchInput }) => {
  let [searchResults, setSearchResults] = useState([]);
 
   useEffect(() => {
@@ -29,7 +29,7 @@ const randomIndex = Math.floor(Math.random() * API_LIST.length);
 
 const API_KEY = API_LIST[randomIndex];
 console.log('key:',API_KEY);
-      const API_URL = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=18&q=${searchInput}&videoDuration=long&key=${API_KEY}`;
+const API_URL = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=playlist&maxResults=12&q=${searchInput}&key=${API_KEY}`;
 
       try {
         const response = await fetch(API_URL);
@@ -44,7 +44,6 @@ console.log('key:',API_KEY);
 
     fetchData();
   }, [searchInput]);
- 
 
   if (!searchInput) {
     return <p>Please enter a search query.</p>;
@@ -54,32 +53,31 @@ console.log('key:',API_KEY);
     <div>
       <br />
       <br />
-     <br/>
-      <div className="link-container">
-      <Link to={`/SearchResult/${searchInput}`} className="link vid">Videos</Link>
+      <br/>
+      <div className="link-container1">
+      <Link to={`/SearchResult/${searchInput}`} className="link">Videos</Link>
        <div className="mt-2">
         |
        </div>
       <Link to={`/SearchResult/${searchInput}/playlist`} className="link">Playlists</Link>
     </div>
-    <hr/>
-
-
+      
+<hr/>
       <div className="container">
         <div className="row">
           {searchResults.map((item) => (
-            <div key={item.id.videoId} className="col-lg-4 col-md-6 col-sm-12 mb-4">
+            <div key={item.id.playlistId} className="col-lg-4 col-md-6 col-sm-12 mb-4">
               
                 <div className="card">
-                <Link to={`/Player/${item.id.videoId}`} >
+              <Link to={`/playlist/${item.id.playlistId}`}>
                   <img
                     src={item.snippet.thumbnails.medium.url}
                     className="card-img-top"
                     alt={item.snippet.title}
                   />
-                   </Link>
+                 </Link>
                   <div className="card-body">
-                  <Link to={`/Player/${item.id.videoId}`} className="maincard1">  <h5 className="card-title">{item.snippet.title}</h5> </Link>
+                    <h5 className="card-title maincard1" >{item.snippet.title}</h5> 
                     <p className="font-weight-bold">{item.snippet.channelTitle}</p>
                   </div>
                 </div>
@@ -92,4 +90,4 @@ console.log('key:',API_KEY);
   );
 };
 
-export default SearchResult;
+export default Playlist;

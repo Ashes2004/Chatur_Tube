@@ -1,22 +1,17 @@
-.maincard1{
-    text-decoration: none;
-    color: black;
-}
-.link-container {
+.link-container1 {
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
   }
   
-  .link-container a {
+  .link-container1 a {
     text-decoration: none;
     color: #333;
     font-weight: bold;
     padding: 10px; /* Optional: Add padding for better spacing */
     position: relative;
   }
-  
-  .link-container a:first-child {
+  .link-container1 a:last-child {
     color: red; /* Change the color to red for the first link */
 }
 
@@ -32,8 +27,4 @@
   .link-container a:hover:after {
     transform: scaleX(1);
   }
-  .text{
-    margin-top: 0;
-    font-weight: 600;
-    font-size: large;
-  }
+  

@@ -1,18 +1,16 @@
 import React from 'react';
 import './Footer.css';
+import { Link } from 'react-router-dom';
 
 function Footer() {
-    const handleClick = () => {
-        const chaturUrl = `https://mrchatur.netlify.app`;
-        window.location.href = chaturUrl;
-      };
+    
   return (
     <div>
       <footer className="d-flex justify-content-around foot ">
         
          
        
-          <i className="fas fa-home footele" onClick={handleClick} ></i>
+        <Link to='/'> <i className="fas fa-home footele"  ></i></Link>  
        
          
       </footer>

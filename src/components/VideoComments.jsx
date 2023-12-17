@@ -9,8 +9,23 @@ const VideoComments = ({ videoId }) => {
   useEffect(() => {
     const fetchComments = async () => {
       try {
-        const apiKey = 'AIzaSyDwCaQVTwJsau514qhaWTMBlZ80iQgKLtM';
-        const apiUrl = `https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=${videoId}&key=${apiKey}`;
+        const API_LIST = [
+          'AIzaSyAM9R1vr9t6GSrazqGtw5t8RBKmz2Q17dk',
+          'AIzaSyCvaktMcshCgWbahXn7JuJcmhUlSR5ZxAA',
+          'AIzaSyBboFo9umdEW03mwz8IdLsRVWXEeAyokdw',
+          'AIzaSyAmw-1dYBqj1MIqccmtfeLWfgzYqROkylY',
+          'AIzaSyBXaSHnkg1JHTCn8um-q4AfwlyDrC0g5ng',
+          'AIzaSyA-xoSvUcnAYUK2v6sTeJtQT4NG9JxWrQg',
+          'AIzaSyDwCaQVTwJsau514qhaWTMBlZ80iQgKLtM'
+        ];
+        
+       
+        const randomIndex = Math.floor(Math.random() * API_LIST.length);
+        
+      
+        const API_KEY = API_LIST[randomIndex];
+        console.log('key:',API_KEY);
+        const apiUrl = `https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=${videoId}&key=${API_KEY}`;
 
         const response = await fetch(apiUrl);
 
