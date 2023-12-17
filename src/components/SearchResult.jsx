@@ -11,7 +11,7 @@ const SearchResult = ({ searchInput }) => {
         console.log('null input');
       }
 console.log('result here: ',searchInput);
-      const API_URL = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=18&q=${searchInput}&videoDuration=long&key=AIzaSyA-xoSvUcnAYUK2v6sTeJtQT4NG9JxWrQg`;
+      const API_URL = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=18&q=${searchInput}&videoDuration=long&key=AIzaSyDwCaQVTwJsau514qhaWTMBlZ80iQgKLtM`;
 
       try {
         const response = await fetch(API_URL);
