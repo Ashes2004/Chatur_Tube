@@ -3,19 +3,24 @@ import { Link, useParams } from 'react-router-dom';
 import './SearchResult.css';
 
 const PlaylistItem = () => {
+ 
   const [searchResults, setSearchResults] = useState([]);
+
   const [pageToken, setPageToken] = useState('');
   const { playlistId } = useParams();
   const API_LIST = [
     'AIzaSyAM9R1vr9t6GSrazqGtw5t8RBKmz2Q17dk',
-    'AIzaSyCvaktMcshCgWbahXn7JuJcmhUlSR5ZxAA',
-    'AIzaSyBboFo9umdEW03mwz8IdLsRVWXEeAyokdw',
-    'AIzaSyAmw-1dYBqj1MIqccmtfeLWfgzYqROkylY',
-    'AIzaSyBXaSHnkg1JHTCn8um-q4AfwlyDrC0g5ng',
-    'AIzaSyA-xoSvUcnAYUK2v6sTeJtQT4NG9JxWrQg',
-    'AIzaSyDwCaQVTwJsau514qhaWTMBlZ80iQgKLtM'
+          'AIzaSyCvaktMcshCgWbahXn7JuJcmhUlSR5ZxAA',
+          'AIzaSyBboFo9umdEW03mwz8IdLsRVWXEeAyokdw',
+          'AIzaSyAmw-1dYBqj1MIqccmtfeLWfgzYqROkylY',
+          'AIzaSyBXaSHnkg1JHTCn8um-q4AfwlyDrC0g5ng',
+          'AIzaSyA-xoSvUcnAYUK2v6sTeJtQT4NG9JxWrQg',
+          'AIzaSyDwCaQVTwJsau514qhaWTMBlZ80iQgKLtM',
+          'AIzaSyB-9_ZEDWXvVl5_Mc9PQ3FTUxgHMA5qCs4',
+          'AIzaSyBL-y6KSyd1roD9rAY6tzRuJpiSRBVxww8',
+          'AIzaSyCfscBsyvhAIjMzb8JSr95Ub2bgNvnYwZc',
   ];
-  
+ 
  
   const randomIndex = Math.floor(Math.random() * API_LIST.length);
   
@@ -41,9 +46,10 @@ const PlaylistItem = () => {
 
         // Update state with the fetched items
         setSearchResults(prevResults => [...prevResults, ...data.items]);
-        
+       
         // Update pageToken for the next page
         setPageToken(data.nextPageToken || '');
+      
       } catch (error) {
         console.error('Error fetching data:', error);
         // Handle the error
@@ -51,18 +57,22 @@ const PlaylistItem = () => {
     };
 
     fetchData();
+  
   }, [playlistId, pageToken]); // Include pageToken in the dependency array
 
   if (!playlistId) {
     return <p>not available.</p>;
   }
-
+  
   return (
     <div>
       <br />
       <br />
       <br />
-<h4 className="text-center text">Playlist</h4>
+<h4 className="text-center text">Playlist 
+</h4>
+
+
 <hr/>
       <div className="container">
         <div className="row">

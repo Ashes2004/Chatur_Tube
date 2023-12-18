@@ -15,10 +15,14 @@ const Player = () => {
   return (
     <div>
       {loading && (
+        <div>
+        <br/>
+        <br/>
+        <br/>
         <div className="loader-container">
-          <div className="spinner-border text-primary" role="status">
-            <span className="visually-hidden">Loading...</span>
+        <div className="loader ">
           </div>
+        </div>
         </div>
       )}
 

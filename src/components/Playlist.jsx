@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 
 const Playlist = ({ searchInput }) => {
  let [searchResults, setSearchResults] = useState([]);
+ const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -17,6 +18,7 @@ const API_LIST = [
  
   'AIzaSyA-xoSvUcnAYUK2v6sTeJtQT4NG9JxWrQg',
   'AIzaSyDwCaQVTwJsau514qhaWTMBlZ80iQgKLtM',
+  'AIzaSyAL0JOXST4YMX_e6lpMbG2-vd1kOQCOEAs',
   'AIzaSyCfscBsyvhAIjMzb8JSr95Ub2bgNvnYwZc',
   'AIzaSyB-9_ZEDWXvVl5_Mc9PQ3FTUxgHMA5qCs4',
 ];
@@ -33,15 +35,34 @@ const API_URL = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=
         const response = await fetch(API_URL);
         const data = await response.json();
     // Update state with the fetched items
+    console.log(data);
     setSearchResults(data.items)
+    setLoading(false);
       } catch (error) {
+        setLoading(true);
         console.error('Error fetching data:', error);
         // Handle the error
       }
     };
-
+    setLoading(true);
     fetchData();
   }, [searchInput]);
+  if(loading){
+    return (
+      <div>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <div className="loader-container">
+      <div className="loader ">
+        </div>
+      </div>
+      </div>
+    )
+  }
 
   if (!searchInput) {
     return <p>Please enter a search query.</p>;

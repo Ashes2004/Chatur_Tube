@@ -34,6 +34,9 @@ const Feed = ({ data }) => {
             ))
           ) : (
             <div className="d-flex justify-content-center  align-center">
+              <br/>
+              <br/>
+              <br/>
             <div className="loader "></div>
             </div>
           )}

@@ -2,6 +2,7 @@ const API_LIST = [
   'AIzaSyAM9R1vr9t6GSrazqGtw5t8RBKmz2Q17dk',
   'AIzaSyCvaktMcshCgWbahXn7JuJcmhUlSR5ZxAA',
   'AIzaSyBboFo9umdEW03mwz8IdLsRVWXEeAyokdw',
+  'AIzaSyChsjBvxWfkmXRuT32rGLLFPHpVUW3TWoY',
   'AIzaSyAmw-1dYBqj1MIqccmtfeLWfgzYqROkylY',
   
 ];

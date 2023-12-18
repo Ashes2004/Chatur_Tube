@@ -6,6 +6,7 @@ import './SearchResult.css';
 
 const SearchResult = ({ searchInput }) => {
  let [searchResults, setSearchResults] = useState([]);
+ const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -16,6 +17,7 @@ console.log('result here: ',searchInput);
 const API_LIST = [
   'AIzaSyBXaSHnkg1JHTCn8um-q4AfwlyDrC0g5ng',
   'AIzaSyA-xoSvUcnAYUK2v6sTeJtQT4NG9JxWrQg',
+  'AIzaSyCrqGMeja8b_Rc7P_soj7nnwWibieCiRQ8',
   'AIzaSyDwCaQVTwJsau514qhaWTMBlZ80iQgKLtM',
   'AIzaSyBL-y6KSyd1roD9rAY6tzRuJpiSRBVxww8',
 ];
@@ -33,16 +35,34 @@ console.log('key:',API_KEY);
         const data = await response.json();
     // Update state with the fetched items
     setSearchResults(data.items)
+    setLoading(false);
       } catch (error) {
+        setLoading(true);
         console.error('Error fetching data:', error);
+
         // Handle the error
       }
     };
-
+    setLoading(true);
     fetchData();
   }, [searchInput]);
  
-
+if(loading){
+  return (
+    <div>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <div className="loader-container">
+    <div className="loader ">
+      </div>
+    </div>
+    </div>
+  )
+}
   if (!searchInput) {
     return <p>Please enter a search query.</p>;
   }
