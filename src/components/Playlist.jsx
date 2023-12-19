@@ -96,7 +96,7 @@ const API_URL = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=
                   />
                  </Link>
                   <div className="card-body">
-                    <h5 className="card-title maincard1" >{item.snippet.title}</h5> 
+                    <h5 className="card-title maincard1" >{item.snippet.title} (playlist)</h5> 
                     <p className="font-weight-bold">{item.snippet.channelTitle}</p>
                   </div>
                 </div>
