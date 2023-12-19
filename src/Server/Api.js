@@ -18,7 +18,7 @@ const randomTopic = Math.floor(Math.random() * Array.length);
 let searchQuery = Array[randomTopic];
 
 export const fetchData = async () => {
-    const apiUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=18&q=${searchQuery}&videoDuration=long&regionCode=IN&order=viewCount&key=${API_KEY}`;
+    const apiUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=18&q=${searchQuery}&videoDuration=long&key=${API_KEY}`;
 
 
   try {

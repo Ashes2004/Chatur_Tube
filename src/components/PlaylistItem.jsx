@@ -27,7 +27,7 @@ const PlaylistItem = () => {
 
   const API_KEY = API_LIST[randomIndex];
   console.log('key:',API_KEY);
-  const maxResults = 50;
+  const maxResults = 100;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -37,28 +37,38 @@ const PlaylistItem = () => {
       }
 
       console.log('result here: ', playlistId);
+      setSearchResults([]);
 
-      const API_URL = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${playlistId}&key=${API_KEY}&maxResults=${maxResults}&pageToken=${pageToken}`;
-
-      try {
-        const response = await fetch(API_URL);
-        const data = await response.json();
-
-        // Update state with the fetched items
-        setSearchResults(prevResults => [...prevResults, ...data.items]);
-       
-        // Update pageToken for the next page
-        setPageToken(data.nextPageToken || '');
-      
-      } catch (error) {
-        console.error('Error fetching data:', error);
-        // Handle the error
-      }
+      const fetchWithPagination = async (token = '') => {
+        const API_URL = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${playlistId}&key=${API_KEY}&maxResults=${maxResults}&pageToken=${token}`;
+  
+        try {
+          const response = await fetch(API_URL);
+          const data = await response.json();
+  
+          // Update state with the fetched items
+          setSearchResults((prevResults) => [...prevResults, ...data.items]);
+  
+          // Update pageToken for the next page
+          setPageToken(data.nextPageToken || '');
+  
+          // Fetch next page if there is a next page token
+          if (data.nextPageToken) {
+            await fetchWithPagination(data.nextPageToken);
+          }
+        } catch (error) {
+          console.error('Error fetching data:', error);
+          // Handle the error
+        }
+      };
+  
+      // Start fetching with pagination
+      await fetchWithPagination();
     };
 
     fetchData();
   
-  }, [playlistId, pageToken]); // Include pageToken in the dependency array
+  }, [playlistId]); // Include pageToken in the dependency array
 
   if (!playlistId) {
     return <p>not available.</p>;
@@ -77,7 +87,8 @@ const PlaylistItem = () => {
       <div className="container">
         <div className="row">
           {searchResults.map((item) => (
-            <div key={item.id.videoId} className="col-lg-4 col-md-6 col-sm-12 mb-4">
+            <div key={`${item.id.videoId}-${Math.random()}`} className="col-lg-4 col-md-6 col-sm-12 mb-4">
+
               <div className="card">
                 <Link to={`/Player/${item.snippet.resourceId.videoId}`}>
                   <img
@@ -97,6 +108,9 @@ const PlaylistItem = () => {
           ))}
         </div>
       </div>
+      <br/>
+      <br/>
+    
     </div>
   );
 };

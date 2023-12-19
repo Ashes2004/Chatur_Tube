@@ -29,7 +29,7 @@ const randomIndex = Math.floor(Math.random() * API_LIST.length);
 
 const API_KEY = API_LIST[randomIndex];
 console.log('key:',API_KEY);
-const API_URL = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=playlist&maxResults=12&q=${searchInput}&key=${API_KEY}`;
+const API_URL = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=playlist&maxResults=21&q=${searchInput}&key=${API_KEY}`;
 
       try {
         const response = await fetch(API_URL);
@@ -105,6 +105,8 @@ const API_URL = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=
           ))}
         </div>
       </div>
+      <br/>
+      <br/>
     </div>
   );
 };
