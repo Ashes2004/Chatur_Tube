@@ -71,6 +71,7 @@
 }
 
 .comment-date {
+    margin-left: 6px;
     color: #888;
     font-size: 12px;
 }
