@@ -37,7 +37,7 @@ const Player = () => {
           width="100%"
           height="100%"
           showRelated={false}
-          modestbranding={1}
+        
           onReady={() => setLoading(false)} // Set loading to false when the video is ready
         />
       </div>
