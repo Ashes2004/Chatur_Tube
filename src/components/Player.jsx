@@ -7,7 +7,7 @@ import Download from './Download';
 
 const Player = () => {
   const { videoId } = useParams();
-  const videoUrl = `https://www.youtube.com/watch?v=${videoId}&rel=0&modestbranding=1`;
+  const videoUrl = `https://www.youtube.com/watch?v=${videoId}&rel=0`;
 
   // State to manage loading
   const [loading, setLoading] = useState(true);
@@ -36,6 +36,7 @@ const Player = () => {
           width="100%"
           height="100%"
           showRelated={false}
+          modestbranding={1}
           onReady={() => setLoading(false)} // Set loading to false when the video is ready
         />
       </div>
