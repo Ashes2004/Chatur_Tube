@@ -7,7 +7,7 @@ import Download from './Download';
 
 const Player = () => {
   const { videoId } = useParams();
-  const videoUrl = `https://www.youtube.com/watch?v=${videoId}&rel=0$autoplay=1`;
+  const videoUrl = `https://www.youtube.com/watch?v=${videoId}&rel=0&autoplay=1`;
 
   // State to manage loading
   const [loading, setLoading] = useState(true);
