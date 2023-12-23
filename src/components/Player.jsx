@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import ReactPlayer from 'react-player';
+import YouTube from 'react-youtube';
 import './Player.css';
 import VideoComments from './VideoComments';
 import Download from './Download';
@@ -12,40 +12,41 @@ const Player = () => {
   // State to manage loading
   const [loading, setLoading] = useState(true);
 
+  const opts = {
+    height: '100%',
+    width: '100%',
+    playerVars: {
+      // https://developers.google.com/youtube/player_parameters
+      controls: 1,
+      modestbranding: 1,
+      showRelated: false,
+    },
+  };
+
   return (
     <div>
       {loading && (
         <div>
-        <br/>
-        <br/>
-        <br/>
-        <div className="loader-container">
-        <div className="loader ">
+          <br />
+          <br />
+          <br />
+          <div className="loader-container">
+            <div className="loader"></div>
           </div>
-        </div>
         </div>
       )}
 
       <div className={`player-container ${loading ? 'hidden' : ''}`}>
-        <ReactPlayer
-          className="react-player"
-          url={videoUrl}
-          controls={true}
-          
-       
-          width="100%"
-          height="100%"
-          showRelated={false}
-          modestbranding={1}
+        <YouTube
+          videoId={videoId}
+          opts={opts}
           onReady={() => setLoading(false)} // Set loading to false when the video is ready
         />
       </div>
 
-      <div className="d-flex justify-content-center">    
-<Download
-
- videoId={videoId}/>
- </div>
+      <div className="d-flex justify-content-center">
+        <Download videoId={videoId} />
+      </div>
       <VideoComments videoId={videoId} />
     </div>
   );
