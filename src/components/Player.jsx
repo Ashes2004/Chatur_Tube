@@ -43,9 +43,7 @@ const Player = () => {
       </div>
 
       <div className="d-flex justify-content-center">    
-<Download
 
- videoId={videoId}/>
  </div>
       <VideoComments videoId={videoId} />
     </div>
