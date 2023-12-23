@@ -7,7 +7,7 @@ import Download from './Download';
 
 const Player = () => {
   const { videoId } = useParams();
-  const videoUrl = `https://www.youtube.com/watch?v=${videoId}&rel=0&autoplay=1`;
+  const videoUrl = `https://www.youtube.com/watch?v=${videoId}&rel=0`;
 
   // State to manage loading
   const [loading, setLoading] = useState(true);
@@ -30,6 +30,7 @@ const Player = () => {
         <ReactPlayer
           className="react-player"
           url={videoUrl}
+          autoplay = {1}
           controls={true}
           
        
