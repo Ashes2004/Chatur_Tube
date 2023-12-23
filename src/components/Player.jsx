@@ -18,6 +18,7 @@ const Player = () => {
     playerVars: {
       // https://developers.google.com/youtube/player_parameters
       controls: 1,
+      autoplay:1,
       modestbranding: 1,
       showRelated: false,
     },
