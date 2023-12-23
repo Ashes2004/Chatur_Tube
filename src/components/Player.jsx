@@ -31,6 +31,8 @@ const Player = () => {
           className="react-player"
           url={videoUrl}
           controls={true}
+          modestbranding = {true}
+          rel = {false}
           width="100%"
           height="100%"
           showRelated={false}
