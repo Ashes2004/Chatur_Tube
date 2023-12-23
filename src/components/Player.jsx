@@ -30,7 +30,7 @@ const Player = () => {
         <ReactPlayer
           className="react-player"
           url={videoUrl}
-          autoplay = {1}
+          playing={true}
           controls={true}
           
        
